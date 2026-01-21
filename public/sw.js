@@ -1,5 +1,5 @@
-const CACHE_NAME = 'antonio-customer-v5';
-const STATIC_CACHE_NAME = 'antonio-static-v5';
+const CACHE_NAME = 'tirva-customer-v5';
+const STATIC_CACHE_NAME = 'tirva-static-v5';
 
 // Cache static assets only - minimal list to avoid 404 errors
 const urlsToCache = [

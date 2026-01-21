@@ -352,7 +352,7 @@ export function StructuredAddressInput({
       }).addTo(map);
       
       // Add restaurant marker
-      const branchName = branchLocation?.name || 'Pizzeria Antonio';
+      const branchName = branchLocation?.name || 'Tirvan Kahvila';
       const restaurantIcon = L.divIcon({
         html: `<div style="background: #ef4444; color: white; padding: 4px 8px; border-radius: 4px; font-size: 10px; font-weight: bold; box-shadow: 0 2px 4px rgba(0,0,0,0.3); white-space: nowrap;">🍕 ${branchName}</div>`,
         className: 'custom-marker',

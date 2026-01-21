@@ -1,4 +1,4 @@
-﻿import { useLanguage } from "@/lib/language-context";
+import { useLanguage } from "@/lib/language-context";
 import { useRestaurant } from "@/lib/restaurant-context";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -38,7 +38,7 @@ export function Hero() {
       <div className="relative z-10 text-center text-white max-w-5xl mx-auto px-4">
         <div className="animate-fade-in">
           <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-            {t("Pizzeria Antonio", "Pizzeria Antonio")}
+            {t("Tirvan Kahvila", "Tirvan Kahvila")}
           </h1>
           <p className="text-2xl md:text-3xl mb-4 font-light">
             {t("Tervetuloa!", "Welcome!")}
@@ -74,8 +74,8 @@ export function Hero() {
             <div className="flex items-center justify-center space-x-2">
               <MapPin className="w-5 h-5" />
               <div className="text-center">
-                <span className="text-sm font-medium block">Rauhankatu 19 c</span>
-                <p className="text-xs text-gray-300">15110 Lahti</p>
+                <span className="text-sm font-medium block">Pasintie 2</span>
+                <p className="text-xs text-gray-300">45410 Utti</p>
               </div>
             </div>
           </div>
@@ -84,7 +84,7 @@ export function Hero() {
             <div className="flex items-center justify-center space-x-2">
               <Phone className="w-5 h-5" />
               <div className="text-center">
-                <span className="text-sm font-medium block">+358-3589-9089</span>
+                <span className="text-sm font-medium block">+358 41 3152619</span>
                 <p className="text-xs text-gray-300">{t("Puhelin", "Phone")}</p>
               </div>
             </div>
@@ -98,7 +98,7 @@ export function Hero() {
             size="lg"
             className="bg-red-600 hover:bg-red-700 text-white font-semibold py-4 px-8 transform hover:scale-105 transition-all shadow-2xl"
           >
-            {t("🍕 Tilaa verkossa", "🍕 Order Online")}
+            {t("?? Tilaa verkossa", "?? Order Online")}
           </Button>
           <Button
             variant="outline"
@@ -106,7 +106,7 @@ export function Hero() {
             onClick={scrollToMenu}
             className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-gray-900 font-semibold py-4 px-8 transition-all shadow-lg"
           >
-            {t("📋 Katso menu", "📋 View Menu")}
+            {t("?? Katso menu", "?? View Menu")}
           </Button>
           <Button
             variant="outline"
@@ -114,7 +114,7 @@ export function Hero() {
             onClick={scrollToContact}
             className="bg-white/10 backdrop-blur-sm border-2 border-white/30 text-white hover:bg-white hover:text-gray-900 font-semibold py-4 px-8 transition-all"
           >
-            {t("📍 Yhteystiedot", "📍 Contact")}
+            {t("?? Yhteystiedot", "?? Contact")}
           </Button>
         </div>
 

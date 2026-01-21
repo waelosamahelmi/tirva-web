@@ -428,10 +428,10 @@ class ThermalPrinterService {
   private generateTestReceipt(): string {
     return `
 ==============================
-        Pizzeria Antonio
+        Tirvan Kahvila
 ==============================
-      Rauhankatu 19 c, 15110 Lahti
-        +358-401234567
+      Pasintie 2, 45410 Utti
+        +358-413152619
 
 ------------------------------
            TEST PRINT
@@ -464,18 +464,18 @@ printer connectivity.
     
     // Logo/Header - Improved design
     receipt += escCenter + escBold + escDoubleLarge;
-    receipt += '***  ANTONIO  ***' + lineFeed;
+    receipt += '***  TIRVA  ***' + lineFeed;
     receipt += escNormal + escBoldOff;
     receipt += escCenter + escLarge;
     receipt += 'Pizzeria & Pizzeria' + lineFeed;
     receipt += escNormal;
     receipt += '==============================' + lineFeed;
     receipt += escBold;
-    receipt += 'Rauhankatu 19 c, 15110 Lahti' + lineFeed;
-    receipt += 'Puh: +358-401234567' + lineFeed;
+    receipt += 'Pasintie 2, 45410 Utti' + lineFeed;
+    receipt += 'Puh: +358-413152619' + lineFeed;
     receipt += escBoldOff;
-    receipt += 'info@pizzeriaantonio.fi' + lineFeed;
-    receipt += 'www.pizzeriaantonio.fi' + lineFeed;
+    receipt += 'info@tirvankahvila.fi' + lineFeed;
+    receipt += 'www.tirvankahvila.fi' + lineFeed;
     receipt += '==============================' + lineFeed;
     receipt += lineFeed;
     
@@ -648,9 +648,9 @@ printer connectivity.
     receipt += '==============================' + lineFeed;
     receipt += lineFeed;
     receipt += escBold;
-    receipt += 'PIZZERIA ANTONIO' + lineFeed;
+    receipt += 'Tirvan Kahvila' + lineFeed;
     receipt += escBoldOff;
-    receipt += 'Rauhankatu 19 c, 15110 Lahti' + lineFeed;
+    receipt += 'Pasintie 2, 45410 Utti' + lineFeed;
     receipt += lineFeed;
     receipt += escBold;
     receipt += 'AUKIOLOAJAT / OPENING HOURS' + lineFeed;
@@ -659,13 +659,13 @@ printer connectivity.
     receipt += 'Kotiinkuljetus / Delivery:' + lineFeed;
     receipt += 'Ma-To, Pe-Su: 10:00-20:30' + lineFeed;
     receipt += lineFeed;
-    receipt += 'Puh / Tel: +358-401234567' + lineFeed;
-    receipt += 'www.pizzeriaantonio.fi' + lineFeed;
+    receipt += 'Puh / Tel: +358-413152619' + lineFeed;
+    receipt += 'www.tirvankahvila.fi' + lineFeed;
     receipt += lineFeed;
     receipt += escBold;
     receipt += 'Seuraa meitä / Follow us:' + lineFeed;
     receipt += escBoldOff;
-    receipt += '@pizzeriaantonio' + lineFeed;
+    receipt += '@tirvankahvila' + lineFeed;
     receipt += lineFeed;
     receipt += '==============================' + lineFeed;
     receipt += lineFeed + lineFeed + lineFeed;

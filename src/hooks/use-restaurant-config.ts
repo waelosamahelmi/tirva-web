@@ -258,8 +258,8 @@ class RestaurantConfigManager {
       } else {
         console.warn('⚠️ No active restaurant config found in database, using fallback');
         // Import fallback config
-        const { pizzeria_antonio_CONFIG } = await import('../config/restaurant-config');
-        this.currentConfig = pizzeria_antonio_CONFIG;
+        const { tirvan_kahvila_CONFIG } = await import('../config/restaurant-config');
+        this.currentConfig = tirvan_kahvila_CONFIG;
       }
       
       this.isInitialized = true;
@@ -297,8 +297,8 @@ class RestaurantConfigManager {
 
   private async loadFallbackConfig() {
     try {
-      const { pizzeria_antonio_CONFIG } = await import('../config/restaurant-config');
-      this.currentConfig = pizzeria_antonio_CONFIG;
+      const { tirvan_kahvila_CONFIG } = await import('../config/restaurant-config');
+      this.currentConfig = tirvan_kahvila_CONFIG;
       this.isInitialized = true;
       this.notifySubscribers();
     } catch (error) {

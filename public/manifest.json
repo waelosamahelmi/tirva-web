@@ -1,7 +1,7 @@
 {
-  "name": "Pizzeria Antonio",
-  "short_name": "antonio",
-  "description": "Italian restaurant offering authentic pizza and kebab",
+  "name": "Tirvan Kahvila",
+  "short_name": "tirva",
+  "description": "Kahvila offering authentic food",
   "theme_color": "#16A34A",
   "background_color": "#ffffff",
   "display": "standalone",

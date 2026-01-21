@@ -1,5 +1,5 @@
-# Fly.io configuration for Antonio Customer Website
-app = "antonio-web"
+# Fly.io configuration for tirva Customer Website
+app = "tirva-web"
 primary_region = "arn" # Stockholm, Sweden (closest to Finland)
 
 [build]
@@ -7,7 +7,7 @@ primary_region = "arn" # Stockholm, Sweden (closest to Finland)
     NODE_VERSION = "20"
     VITE_SUPABASE_URL = "https://qyzlovkegjjjgwoedruh.supabase.co"
     VITE_SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InF5emxvdmtlZ2pqamd3b2VkcnVoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjQ5NTM3OTUsImV4cCI6MjA4MDUyOTc5NX0.pkCvUAT1SXhCL8BikKeNZYTe80kDEqC0rp3O5wtW20c"
-    VITE_API_URL = "https://antonio-admin.fly.dev"
+    VITE_API_URL = "https://tirva-admin.fly.dev"
     IMAGE_CDN_URL = "https://cdn.plateos.fi"
 
 [env]

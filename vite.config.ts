@@ -33,11 +33,11 @@ export default defineConfig({
     },
     proxy: {
       '/api': {
-        target: 'https://antonio-admin.fly.dev/',
+        target: 'https://tirva-admin.fly.dev/',
         changeOrigin: true,
       },
       '/ws': {
-        target: 'wss://antonio-admin.fly.dev',
+        target: 'wss://tirva-admin.fly.dev',
         ws: true,
         changeOrigin: true,
       },

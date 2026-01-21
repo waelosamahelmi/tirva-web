@@ -179,9 +179,9 @@ export function EmailMarketing() {
       html = html.replace('{{SUBTITLE}}', emailSubject);
       html = html.replace('{{CONTENT}}', emailContent.replace(/\n/g, '<br>'));
       html = html.replace('{{LINK}}', emailLink || '#');
-      html = html.replace(/{{RESTAURANT_NAME}}/g, 'Restaurant Antonio');
-      html = html.replace(/{{RESTAURANT_ADDRESS}}/g, 'Rauhankatu 19 c, 15110');
-      html = html.replace(/{{RESTAURANT_PHONE}}/g, '+358 3 589 9089');
+      html = html.replace(/{{RESTAURANT_NAME}}/g, 'Tirvan Kahvila');
+      html = html.replace(/{{RESTAURANT_ADDRESS}}/g, 'Pasintie 2, 45410 Utti');
+      html = html.replace(/{{RESTAURANT_PHONE}}/g, '+358 41 3152619');
 
       // Get recipient emails
       let recipients: string[] = [];
@@ -409,7 +409,7 @@ export function EmailMarketing() {
                 )}
               </div>
               <div className="bg-gray-100 p-4 text-center text-sm text-gray-600">
-                Restaurant Antonio | Rauhankatu 19 c, 15110 | +358 3 589 9089
+                Tirvan Kahvila | Pasintie 2, 45410 Utti | +358 41 3152619
               </div>
             </div>
           </div>

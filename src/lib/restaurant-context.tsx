@@ -1,5 +1,5 @@
 import { createContext, useContext, useState, useEffect } from "react";
-import { type RestaurantConfig, pizzeria_antonio_CONFIG } from "@/config/restaurant-config";
+import { type RestaurantConfig, tirvan_kahvila_CONFIG } from "@/config/restaurant-config";
 import { useRestaurantConfig, convertRestaurantConfigToDatabaseConfig } from "@/hooks/use-restaurant-config";
 
 interface RestaurantContextType {
@@ -15,7 +15,7 @@ export function RestaurantProvider({ children }: { children: React.ReactNode }) 
   const { config: dbConfig, loading, error, updateConfig: updateDbConfig } = useRestaurantConfig();
 
   // Use database config if available, otherwise fallback to hardcoded config
-  const config = dbConfig || pizzeria_antonio_CONFIG;
+  const config = dbConfig || tirvan_kahvila_CONFIG;
 
   // Wrapper function to convert RestaurantConfig to DatabaseRestaurantConfig before saving
   const updateConfig = async (updates: RestaurantConfig) => {
@@ -32,7 +32,7 @@ export function RestaurantProvider({ children }: { children: React.ReactNode }) 
 
     return (
       <RestaurantContext.Provider value={{
-        config: pizzeria_antonio_CONFIG,
+        config: tirvan_kahvila_CONFIG,
         updateConfig,
         loading: false,
         error: null

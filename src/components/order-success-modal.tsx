@@ -96,13 +96,13 @@ export function OrderSuccessModal({ isOpen, onClose, orderType, orderNumber }: O
             <CardContent className="p-4">
               <div className="text-center space-y-1">
                 <p className="font-semibold text-green-800 dark:text-green-200">
-                  Pizzeria Antonio
+                  Tirvan Kahvila
                 </p>
                 <p className="text-sm text-green-700 dark:text-green-300">
-                  Rauhankatu 19 c, 15110 Lahti
+                  Pasintie 2, 45410 Utti
                 </p>
                 <p className="text-sm text-green-700 dark:text-green-300">
-                  +358-401234567
+                  +358-413152619
                 </p>
               </div>
             </CardContent>

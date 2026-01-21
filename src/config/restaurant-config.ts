@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Restaurant Configuration
  * Centralized configuration for easy restaurant customization
  */
@@ -246,12 +246,12 @@ export interface RestaurantConfig {
 
 // Utility functions for parsing database hours
 export function parseDatabaseHours(hoursJson: string): ParsedHours {
-  console.log('🔍 Raw database hours input:', hoursJson, 'Type:', typeof hoursJson);
+  console.log('?? Raw database hours input:', hoursJson, 'Type:', typeof hoursJson);
   
   try {
     // Try to parse as JSON first (mobile app format)
     const parsed = JSON.parse(hoursJson);
-    console.log('✅ Parsed as JSON:', parsed);
+    console.log('? Parsed as JSON:', parsed);
     
     // Check if it's already in the correct format
     if (parsed.monday || parsed.Monday) {
@@ -269,7 +269,7 @@ export function parseDatabaseHours(hoursJson: string): ParsedHours {
     // If it's a simple string after JSON parse (shouldn't happen but be safe)
     return parseSimpleTimeRange(String(parsed));
   } catch (error) {
-    console.log('⚠️ Not JSON, treating as simple time range:', hoursJson);
+    console.log('?? Not JSON, treating as simple time range:', hoursJson);
     // Not JSON, treat as simple time range like "08:30-21:30"
     return parseSimpleTimeRange(hoursJson);
   }
@@ -279,7 +279,7 @@ export function parseDatabaseHours(hoursJson: string): ParsedHours {
 function parseSimpleTimeRange(timeRange: string): ParsedHours {
   // Simple format like "08:30-21:30" applies to all days
   const normalizedRange = timeRange.trim();
-  console.log('📝 Using simple time range for all days:', normalizedRange);
+  console.log('?? Using simple time range for all days:', normalizedRange);
   
   return {
     monday: normalizedRange,
@@ -293,9 +293,9 @@ function parseSimpleTimeRange(timeRange: string): ParsedHours {
 }
 
 export function convertDatabaseHoursToWeekSchedule(hoursJson: string): WeekSchedule {
-  console.log('🔄 Converting database hours:', hoursJson);
+  console.log('?? Converting database hours:', hoursJson);
   const parsedHours = parseDatabaseHours(hoursJson);
-  console.log('📋 Parsed hours:', parsedHours);
+  console.log('?? Parsed hours:', parsedHours);
   const schedule: WeekSchedule = {} as WeekSchedule;
   
   Object.entries(parsedHours).forEach(([day, timeRange]) => {
@@ -311,7 +311,7 @@ export function convertDatabaseHoursToWeekSchedule(hoursJson: string): WeekSched
     }
   });
   
-  console.log('✅ Final schedule:', schedule);
+  console.log('? Final schedule:', schedule);
   return schedule;
 }
 
@@ -347,25 +347,25 @@ export function mergeConfigWithDatabaseSettings(
   return mergedConfig;
 }
 
-// Default configuration for Pizzeria Antonio
-export const pizzeria_antonio_CONFIG: RestaurantConfig = {
-  name: "Pizzeria Antonio",
-  nameEn: "Pizzeria Antonio",
+// Default configuration for Tirvan Kahvila
+export const tirvan_kahvila_CONFIG: RestaurantConfig = {
+  name: "Tirvan Kahvila",
+  nameEn: "Tirvan Kahvila",
   tagline: "Aitoa italialaista makua",
   taglineEn: "Authentic Italian taste",
-  description: "Pizzeria Antoniossa tarjoamme aitoja italialaisia pizzoja ja herkullisia ruokia.",
-  descriptionEn: "At Pizzeria Antonio we offer authentic Italian pizzas and delicious food.",
+  description: "Tirvan Kahvilassa tarjoamme aitoja italialaisia pizzoja ja herkullisia ruokia.",
+  descriptionEn: "At Tirvan Kahvila we offer authentic Italian pizzas and delicious food.",
   
-  phone: "+358401234567",
-  email: "info@pizzeriaantonio.fi",
+  phone: "+358413152619",
+  email: "info@tirvankahvila.fi",
   address: {
-    street: "Rauhankatu 19 c",
-    postalCode: "15110",
-    city: "Lahti",
+    street: "Pasintie 2",
+    postalCode: "45410",
+    city: "Utti",
     country: "Finland"
   },
   
-  facebook: "https://www.facebook.com/pizzeriaantonio",
+  facebook: "https://www.facebook.com/tirvankahvila",
   
   hours: {
     general: {
@@ -412,8 +412,8 @@ export const pizzeria_antonio_CONFIG: RestaurantConfig = {
       { maxDistance: 10, fee: 10.00 }
     ],
     location: {
-      lat: 60.9832,
-      lng: 25.6608,
+      lat: 60.8912,  // Utti coordinates
+      lng: 26.9567,
     },
   },
   
@@ -482,9 +482,9 @@ export const pizzeria_antonio_CONFIG: RestaurantConfig = {
   },
   
   about: {
-    story: "Pizzeria Antoniossa tarjoamme aitoja italialaisia pizzoja ja herkullisia ruokia.",
-    storyEn: "At Pizzeria Antonio we offer authentic Italian pizzas and delicious food.",
-    mission: "Tarjoamme parhaita pizzoja, kebabeja ja muita herkullisia ruokia ystävällisessä palvelussa.",
+    story: "Tirvan Kahvilassa tarjoamme aitoja italialaisia pizzoja ja herkullisia ruokia.",
+    storyEn: "At Tirvan Kahvila we offer authentic Italian pizzas and delicious food.",
+    mission: "Tarjoamme parhaita pizzoja, kebabeja ja muita herkullisia ruokia yst�v�llisess� palvelussa.",
     missionEn: "We offer the best pizzas, kebabs and other delicious food with friendly service.",
     specialties: [
       {
@@ -497,21 +497,21 @@ export const pizzeria_antonio_CONFIG: RestaurantConfig = {
       {
         title: "Kebabit",
         titleEn: "Kebabs",
-        description: "Meheviä ja maukkaita kebabeja eri vaihtoehdoilla",
+        description: "Mehevi� ja maukkaita kebabeja eri vaihtoehdoilla",
         descriptionEn: "Juicy and tasty kebabs with different options",
         icon: "UtensilsCrossed"
       },
       {
         title: "Legendaariset Rullat",
         titleEn: "Legendary Wraps",
-        description: "Kuuluisiksi tulleet rullat täynnä makua",
+        description: "Kuuluisiksi tulleet rullat t�ynn� makua",
         descriptionEn: "Famous wraps full of flavor",
         icon: "ChefHat"
       },
       {
         title: "Gyros Annokset",
         titleEn: "Gyros Dishes",
-        description: "Perinteisiä kreikkalaisia gyros-annoksia",
+        description: "Perinteisi� kreikkalaisia gyros-annoksia",
         descriptionEn: "Traditional Greek gyros dishes",
         icon: "Heart"
       }
@@ -533,7 +533,7 @@ export const pizzeria_antonio_CONFIG: RestaurantConfig = {
 
 // Current active configuration - change this to switch restaurants
 // NOTE: This is now a fallback - the actual config comes from the database
-export const RESTAURANT_CONFIG = pizzeria_antonio_CONFIG;
+export const RESTAURANT_CONFIG = tirvan_kahvila_CONFIG;
 
 // Helper functions
 export const getFullAddress = (config: RestaurantConfig) => {

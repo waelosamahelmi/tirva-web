@@ -44,8 +44,8 @@ export default function Terms() {
             <CardContent className="prose dark:prose-invert max-w-none">
               <p>
                 {t(
-                  "Pizzeria Antonion verkkopalvelu on tarkoitettu ruoan tilaamiseen ja pizzerian tietojen katseluun. Käyttämällä palvelua hyväksyt nämä käyttöehdot.",
-                  "Pizzeria Antonio's web service is intended for food ordering and viewing restaurant information. By using the service, you accept these terms of use."
+                  "Tirvan Kahvilan verkkopalvelu on tarkoitettu ruoan tilaamiseen ja pizzerian tietojen katseluun. Käyttämällä palvelua hyväksyt nämä käyttöehdot.",
+                  "Tirvan Kahvila's web service is intended for food ordering and viewing restaurant information. By using the service, you accept these terms of use."
                 )}
               </p>
             </CardContent>
@@ -105,8 +105,8 @@ export default function Terms() {
             <CardContent className="prose dark:prose-invert max-w-none">
               <p>
                 {t(
-                  "Pizzeria Antonio ei vastaa mahdollisista teknisistä ongelmista verkkopalvelussa. Reklamaatiot ruoasta tulee tehdä 24 tunnin sisällä toimituksesta.",
-                  "Pizzeria Antonio is not responsible for possible technical problems in the web service. Food complaints must be made within 24 hours of delivery."
+                  "Tirvan Kahvila ei vastaa mahdollisista teknisistä ongelmista verkkopalvelussa. Reklamaatiot ruoasta tulee tehdä 24 tunnin sisällä toimituksesta.",
+                  "Tirvan Kahvila is not responsible for possible technical problems in the web service. Food complaints must be made within 24 hours of delivery."
                 )}
               </p>
             </CardContent>
@@ -124,10 +124,10 @@ export default function Terms() {
                 )}
               </p>
               <p>
-                <strong>Pizzeria Antonio</strong><br />
-                Rauhankatu 19 c, 15110 Lahti<br />
-                Puhelin: +358401234567<br />
-                Sähköposti: info@pizzeriaantonio.fi
+                <strong>Tirvan Kahvila</strong><br />
+                Pasintie 2, 45410 Utti<br />
+                Puhelin: +358413152619<br />
+                Sähköposti: info@tirvankahvila.fi
               </p>
             </CardContent>
           </Card>

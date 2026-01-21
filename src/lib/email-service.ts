@@ -241,7 +241,7 @@ export function generateOrderConfirmationHTML(data: OrderEmailData, language: 'f
   <div class="container">
     <!-- Header -->
     <div class="header">
-      <h1>Pizzeria Antonio</h1>
+      <h1>Tirvan Kahvila</h1>
     </div>
 
     <!-- Content -->
@@ -343,12 +343,12 @@ export function generateOrderConfirmationHTML(data: OrderEmailData, language: 'f
 
     <!-- Footer -->
     <div class="footer">
-      <div class="restaurant-name">Pizzeria Antonio</div>
+      <div class="restaurant-name">Tirvan Kahvila</div>
       <p>${text.regards}</p>
       <p>
         <strong>${language === 'fi' ? 'Yhteystiedot' : 'Contact'}:</strong><br>
         +358 401 234 567<br>
-        info@pizzeriaantonio.fi
+        info@tirvankahvila.fi
       </p>
     </div>
   </div>
@@ -399,7 +399,7 @@ export async function sendOrderConfirmationEmail(
           ? `Tilausvahvistus - ${data.orderNumber}`
           : `Order Confirmation - ${data.orderNumber}`,
         html: htmlContent,
-        replyTo: 'info@pizzeriaantonio.fi'
+        replyTo: 'info@tirvankahvila.fi'
       })
     });
 

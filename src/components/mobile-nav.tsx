@@ -1,4 +1,4 @@
-﻿import { useState } from "react";
+import { useState } from "react";
 import { useLanguage } from "@/lib/language-context";
 import { useCart } from "@/lib/cart-context";
 import { useRestaurant } from "@/lib/restaurant-context";
@@ -48,7 +48,7 @@ export function MobileNav() {
     },
     {
       href: "/about",
-      label: t("Meistä", "About"),
+      label: t("Meist�", "About"),
       icon: Info,
       active: location === "/about"
     },
@@ -142,7 +142,7 @@ export function MobileNav() {
                 <SheetContent side="right" className="w-80">
                   <SheetHeader>
                     <SheetTitle className="text-left">
-                      Pizzeria Antonio
+                      Tirvan Kahvila
                     </SheetTitle>
                   </SheetHeader>
                   
@@ -172,15 +172,15 @@ export function MobileNav() {
                         <div className="flex items-center space-x-2">
                           <Phone className="w-4 h-4 text-green-600" />
                           <a href="tel:+35835899089" className="text-green-600">
-                            +358-3589-9089
+                            +358 41 3152619
                           </a>
                         </div>
                         
                         <div className="flex items-start space-x-2">
                           <MapPin className="w-4 h-4 text-red-600 mt-0.5" />
                           <div>
-                            <p>Rauhankatu 19 c</p>
-                            <p>15110 Lahti</p>
+                            <p>Pasintie 2</p>
+                            <p>45410 Utti</p>
                           </div>
                         </div>
                         
