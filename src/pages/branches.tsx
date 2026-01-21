@@ -58,11 +58,11 @@ const BranchCard = ({ branch }: { branch: Branch }) => {
   }, []);
 
   return (
-    <Card className="hover:shadow-xl transition-all duration-300 border-2 hover:border-orange-500">
-      <CardHeader className="bg-gradient-to-br from-orange-50 to-red-50 dark:from-stone-800 dark:to-stone-700">
+    <Card className="hover:shadow-xl transition-all duration-300 border-2 hover:border-green-500">
+      <CardHeader className="bg-gradient-to-br from-green-50 to-emerald-50 dark:from-stone-800 dark:to-stone-700">
         <div className="flex items-center justify-between">
           <CardTitle className="flex items-center gap-3 text-2xl">
-            <div className="w-12 h-12 rounded-full bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center">
+            <div className="w-12 h-12 rounded-full bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center">
               <Store className="w-6 h-6 text-white" />
             </div>
             {language === 'fi' ? branch.name : branch.name_en}
@@ -84,14 +84,14 @@ const BranchCard = ({ branch }: { branch: Branch }) => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {/* Phone */}
           <div className="flex items-start gap-3">
-            <div className="w-10 h-10 rounded-lg bg-orange-100 dark:bg-orange-900 flex items-center justify-center flex-shrink-0">
-              <Phone className="w-5 h-5 text-orange-600 dark:text-orange-400" />
+            <div className="w-10 h-10 rounded-lg bg-green-100 dark:bg-green-900 flex items-center justify-center flex-shrink-0">
+              <Phone className="w-5 h-5 text-green-600 dark:text-green-400" />
             </div>
             <div>
               <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">
                 {t('Puhelin', 'Phone', 'هاتف')}
               </p>
-              <a href={`tel:${branch.phone}`} className="text-lg font-medium text-gray-900 dark:text-white hover:text-orange-600 transition-colors">
+              <a href={`tel:${branch.phone}`} className="text-lg font-medium text-gray-900 dark:text-white hover:text-green-600 transition-colors">
                 {branch.phone}
               </a>
             </div>
@@ -182,11 +182,11 @@ export default function Branches() {
       <UniversalHeader />
 
       {/* Page Header */}
-      <div className="relative bg-gradient-to-br from-orange-600 via-red-600 to-pink-600 text-white py-24 overflow-hidden">
+      <div className="relative bg-gradient-to-br from-green-600 via-emerald-600 to-teal-600 text-white py-24 overflow-hidden">
         {/* Animated background patterns */}
         <div className="absolute inset-0 opacity-20">
           <div className="absolute top-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-0 left-0 w-96 h-96 bg-pink-300 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1.5s' }}></div>
+          <div className="absolute bottom-0 left-0 w-96 h-96 bg-teal-300 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1.5s' }}></div>
         </div>
 
         <div className="max-w-7xl mx-auto px-4 text-center relative">
@@ -215,7 +215,7 @@ export default function Branches() {
         <div className="max-w-7xl mx-auto px-4">
           {isLoading ? (
             <div className="flex justify-center items-center py-20">
-              <Loader2 className="w-12 h-12 animate-spin text-orange-600" />
+              <Loader2 className="w-12 h-12 animate-spin text-green-600" />
             </div>
           ) : branches && branches.length > 0 ? (
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 animate-fade-in">

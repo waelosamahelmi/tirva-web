@@ -380,8 +380,8 @@ export default function Menu() {
         {popularItems.length > 0 && !searchTerm && selectedCategory === "all" && (
           <div className="mb-10">
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 rounded-lg bg-orange-500/10 flex items-center justify-center">
-                <Flame className="w-4 h-4 text-orange-500" />
+              <div className="w-8 h-8 rounded-lg bg-green-500/10 flex items-center justify-center">
+                <Flame className="w-4 h-4 text-green-500" />
               </div>
               <h2 className="text-xl font-bold text-foreground">{t("Tarjoukset", "Deals")}</h2>
             </div>
@@ -390,7 +390,7 @@ export default function Menu() {
                 <div
                   key={`deal-${item.id}`}
                   onClick={() => handleItemClick(item)}
-                  className="group cursor-pointer bg-gradient-to-br from-orange-500/5 to-red-500/5 border border-orange-200 dark:border-orange-900/30 rounded-2xl p-4 hover:shadow-lg hover:border-orange-300 transition-all"
+                  className="group cursor-pointer bg-gradient-to-br from-green-500/5 to-emerald-500/5 border border-green-200 dark:border-green-900/30 rounded-2xl p-4 hover:shadow-lg hover:border-green-300 transition-all"
                 >
                   <div className="flex gap-3">
                     <div className="w-20 h-20 rounded-xl overflow-hidden flex-shrink-0 bg-muted">
@@ -402,8 +402,8 @@ export default function Menu() {
                     </div>
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-1 mb-1">
-                        <Flame className="w-3 h-3 text-orange-500" />
-                        <span className="text-xs font-bold text-orange-600">
+                        <Flame className="w-3 h-3 text-green-500" />
+                        <span className="text-xs font-bold text-green-600">
                           -{item.promotionPercentage || item.offerPercentage}%
                         </span>
                       </div>
