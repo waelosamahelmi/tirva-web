@@ -7,6 +7,10 @@ app = 'tirva-web'
 primary_region = 'iad'
 
 [build]
+  [build.args]
+    VITE_SUPABASE_URL = "https://bgthrhrwbxdcmwracvcj.supabase.co"
+    VITE_SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJndGhyaHJ3YnhkY213cmFjdmNqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDk4Mjg3NjYsImV4cCI6MjA2NTQwNDc2Nn0.DuTAtqYjqYtApqaoTbszzKvvruh0F3qf8TS8iP1tu0s"
+    VITE_API_URL = "https://tirva-admin.fly.dev"
 
 [http_service]
   internal_port = 8080
