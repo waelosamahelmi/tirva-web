@@ -244,13 +244,23 @@ class RestaurantConfigManager {
   }
 
   private async initializeSubscription() {
+    // Set a timeout for the initial fetch
+    const fetchTimeout = new Promise<null>((_, reject) => {
+      setTimeout(() => reject(new Error('Fetch timeout')), 5000);
+    });
+
     try {
-      // Fetch initial data
-      const { data, error } = await supabase
+      // Race between fetch and timeout
+      const fetchPromise = supabase
         .from('restaurant_config')
         .select('*')
         .eq('is_active', true)
         .single();
+
+      const { data, error } = await Promise.race([
+        fetchPromise,
+        fetchTimeout.then(() => ({ data: null, error: { message: 'Timeout' } }))
+      ]) as any;
 
       if (!error && data) {
         this.currentConfig = convertDatabaseConfigToRestaurantConfig(data);
@@ -265,29 +275,34 @@ class RestaurantConfigManager {
       this.isInitialized = true;
       this.notifySubscribers();
 
-      // Set up real-time subscription
-      this.subscription = supabase
-        .channel(`restaurant_config_${Date.now()}`)
-        .on(
-          'postgres_changes',
-          {
-            event: '*',
-            schema: 'public',
-            table: 'restaurant_config',
-            filter: 'is_active=eq.true'
-          },
-          (payload) => {
-            console.log('🔄 Restaurant config changed:', payload);
-            if (payload.new && typeof payload.new === 'object') {
-              this.currentConfig = convertDatabaseConfigToRestaurantConfig(payload.new as DatabaseRestaurantConfig);
-              this.notifySubscribers();
-            } else if (payload.eventType === 'DELETE') {
-              // If active config was deleted, try to load another one
-              this.loadFallbackConfig();
+      // Set up real-time subscription (don't await this)
+      try {
+        this.subscription = supabase
+          .channel(`restaurant_config_${Date.now()}`)
+          .on(
+            'postgres_changes',
+            {
+              event: '*',
+              schema: 'public',
+              table: 'restaurant_config',
+              filter: 'is_active=eq.true'
+            },
+            (payload) => {
+              console.log('🔄 Restaurant config changed:', payload);
+              if (payload.new && typeof payload.new === 'object') {
+                this.currentConfig = convertDatabaseConfigToRestaurantConfig(payload.new as DatabaseRestaurantConfig);
+                this.notifySubscribers();
+              } else if (payload.eventType === 'DELETE') {
+                // If active config was deleted, try to load another one
+                this.loadFallbackConfig();
+              }
             }
-          }
-        )
-        .subscribe();
+          )
+          .subscribe();
+      } catch (subscriptionError) {
+        console.warn('⚠️ Failed to set up real-time subscription:', subscriptionError);
+        // Continue without real-time updates
+      }
     } catch (error) {
       console.error('❌ Error initializing restaurant config subscription:', error);
       // Load fallback config
@@ -361,14 +376,42 @@ export function useRestaurantConfig() {
 
   useEffect(() => {
     const manager = RestaurantConfigManager.getInstance();
+    let mounted = true;
+    
+    // Set a timeout to prevent infinite loading
+    const timeoutId = setTimeout(async () => {
+      if (mounted && loading && !config) {
+        console.warn('⏰ Restaurant config loading timeout, using fallback');
+        try {
+          const { tirvan_kahvila_CONFIG } = await import('../config/restaurant-config');
+          if (mounted) {
+            setConfig(tirvan_kahvila_CONFIG);
+            setLoading(false);
+          }
+        } catch (e) {
+          console.error('Failed to load fallback config:', e);
+          if (mounted) {
+            setLoading(false);
+            setError('Failed to load configuration');
+          }
+        }
+      }
+    }, 3000); // 3 second timeout
     
     const unsubscribe = manager.subscribe((newConfig) => {
-      setConfig(newConfig);
-      setLoading(false);
-      setError(null);
+      if (mounted) {
+        setConfig(newConfig);
+        setLoading(false);
+        setError(null);
+        clearTimeout(timeoutId);
+      }
     });
 
-    return unsubscribe;
+    return () => {
+      mounted = false;
+      clearTimeout(timeoutId);
+      unsubscribe();
+    };
   }, []);
 
   const updateConfig = async (updates: Partial<DatabaseRestaurantConfig>) => {

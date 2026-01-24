@@ -1,9 +1,10 @@
 import { useLanguage } from "@/lib/language-context";
 import { useRestaurant } from "@/lib/restaurant-context";
 import { useBranches } from "@/hooks/use-branches";
-import { UtensilsCrossed, Phone, Mail, MapPin, Heart, Facebook, Instagram } from "lucide-react";
+import { Phone, Mail, MapPin, Heart, Facebook, Instagram } from "lucide-react";
 import * as LucideIcons from "lucide-react";
 import { Link } from "wouter";
+import { Logo } from "@/components/logo";
 
 // TikTok Icon Component
 const TikTokIcon = ({ className }: { className?: string }) => (
@@ -16,8 +17,6 @@ export function Footer() {
   const { t, language } = useLanguage();
   const { config } = useRestaurant();
   const { data: branches } = useBranches();
-  
-  const IconComponent = (LucideIcons as any)[config.logo.icon] || LucideIcons.UtensilsCrossed;
 
   return (
     <footer className="bg-card text-foreground relative overflow-hidden border-t border-border">
@@ -30,12 +29,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* About Section */}
           <div className="space-y-6 lg:col-span-1">
-            <div className="flex items-center gap-3">
-              <div className="bg-primary p-2.5 rounded-xl">
-                <IconComponent className="w-6 h-6 text-primary-foreground" />
-              </div>
-              <h3 className="text-xl font-bold">{config.name}</h3>
-            </div>
+            <Logo size="md" />
             <p className="text-muted-foreground leading-relaxed text-sm line-clamp-3">
               {t(config.about.story, config.about.storyEn)}
             </p>

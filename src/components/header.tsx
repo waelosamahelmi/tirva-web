@@ -4,7 +4,8 @@ import { useCart } from "@/lib/cart-context";
 import { useTheme } from "@/lib/theme-context";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { UtensilsCrossed, ShoppingCart, Moon, Sun, Menu, Globe, X } from "lucide-react";
+import { ShoppingCart, Moon, Sun, Menu, Globe, X } from "lucide-react";
+import { Logo } from "@/components/logo";
 
 interface HeaderProps {
   onCartClick: () => void;
@@ -42,17 +43,10 @@ export function Header({ onCartClick }: HeaderProps) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             {/* Logo */}
-            <div className="flex items-center space-x-2 sm:space-x-3">
-              <div className="w-8 h-8 sm:w-10 sm:h-10 bg-green-600 rounded-full flex items-center justify-center">
-                <UtensilsCrossed className="text-white w-4 h-4 sm:w-5 sm:h-5" />
-              </div>
-              <div>
-                <h1 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white">
-                  <span className="hidden sm:inline">Tirvan Kahvila</span>
-                  <span className="sm:hidden">antonio</span>
-                </h1>
-              </div>
-            </div>
+            <a href="/" className="flex items-center">
+              <Logo size="sm" className="sm:hidden" />
+              <Logo size="md" className="hidden sm:flex" />
+            </a>
 
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex space-x-8">

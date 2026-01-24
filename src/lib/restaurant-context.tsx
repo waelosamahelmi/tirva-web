@@ -14,7 +14,7 @@ const RestaurantContext = createContext<RestaurantContextType | undefined>(undef
 export function RestaurantProvider({ children }: { children: React.ReactNode }) {
   const { config: dbConfig, loading, error, updateConfig: updateDbConfig } = useRestaurantConfig();
 
-  // Use database config if available, otherwise fallback to hardcoded config
+  // Always use a valid config - fallback to hardcoded if database config not available
   const config = dbConfig || tirvan_kahvila_CONFIG;
 
   // Wrapper function to convert RestaurantConfig to DatabaseRestaurantConfig before saving
@@ -23,25 +23,8 @@ export function RestaurantProvider({ children }: { children: React.ReactNode }) 
     await updateDbConfig(dbUpdates);
   };
 
-  // Show loading state only briefly to avoid "Loading website..." getting stuck
-  if (loading && !config) {
-    // Set a maximum loading time - if loading takes more than 5 seconds, show fallback config
-    const timeoutId = setTimeout(() => {
-      console.warn('Restaurant config loading timeout, using fallback');
-    }, 5000);
-
-    return (
-      <RestaurantContext.Provider value={{
-        config: tirvan_kahvila_CONFIG,
-        updateConfig,
-        loading: false,
-        error: null
-      }}>
-        {children}
-      </RestaurantContext.Provider>
-    );
-  }
-
+  // Always render children immediately with fallback config
+  // This prevents any loading state from blocking the UI
   return (
     <RestaurantContext.Provider value={{
       config,
