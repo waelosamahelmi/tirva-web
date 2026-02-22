@@ -882,12 +882,7 @@ export function ItemDetailModal({ item, isOpen, onClose, onAddToCart }: ItemDeta
                   {t("Extrat", "Extras")}
                 </h3>
                 <div className="grid grid-cols-1 gap-3">
-                  {extras.filter((extra: any) => {
-                    // Show relevant extras for each category
-                    if (isKebab || isChicken) return ["Tuplaliha", "Aurajuusto", "Salaattijuusto", "Ananas", "Jalapeno"].includes(extra.name);
-                    if (isBurger) return ["aurajuusto", "feta", "ananas", "jalapeno", "kananmuna"].includes(extra.name.toLowerCase());
-                    return false;
-                  }).map((extra: any) => (
+                  {extras.map((extra: any) => (
                     <div key={extra.id} className="flex items-center justify-between p-3 border rounded-lg">
                       <div className="flex items-center space-x-3">
                         <Checkbox
